@@ -1,0 +1,11 @@
+<div class="name-container" ng-hide="doWeHaveAName()">
+  <label for="">Name<input ng-model="userName" type="text"></label>
+  <br>
+  <br>
+  <button ng-click="saveName()">Submit name</button>
+</div>
+<div ng-show="doWeHaveAName()">
+  <lu ng-repeat="room in rooms">
+    <li>{{room.name}}</li>
+  </lu>
+</div>
