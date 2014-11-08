@@ -14,12 +14,14 @@ angular.module("myApp.services",['firebase'])
 
   return  {
 
-    // saveRooms : function(){
-
-    // },
-
     getRooms : function(){
       var ref = new Firebase(route + '/rooms');
+      var sync = $firebase(ref);
+      return sync.$asArray();
+    },
+
+    getRoomStream : function(roomId){
+      var ref = new Firebase(route + '/rooms/'+roomId+'/stream');
       var sync = $firebase(ref);
       return sync.$asArray();
     }

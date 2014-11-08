@@ -9,7 +9,7 @@ angular.module('myApp.index', ['ngRoute','myApp.services'])
   });
 }])
 
-.controller('IndexCtrl', ['$scope','sharedData','firebaseService',function($scope,sharedData,firebaseService) {
+.controller('IndexCtrl', ['$scope','$location','sharedData','firebaseService',function($scope,$location,sharedData,firebaseService) {
 
   $scope.user = sharedData.currentUser;
 
@@ -31,6 +31,8 @@ angular.module('myApp.index', ['ngRoute','myApp.services'])
     $scope.user.name = $scope.userName;
   };
 
-
+  $scope.goRoom = function(room){
+    $location.url('/room/' + room.$id);
+  };
 
 }]);

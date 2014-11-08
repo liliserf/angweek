@@ -1,0 +1,6 @@
+<div class="stream-container">
+  <lu ng-repeat="feed in stream">
+    <li> {{feed.author}}: {{feed.message}}</li>
+  </lu>
+</div>
+<div class="reponse-container"><label for="">text</label><input type="text" ng-model="text" ng-keypress="submit($event)"></div>

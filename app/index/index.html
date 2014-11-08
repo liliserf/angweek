@@ -6,6 +6,6 @@
 </div>
 <div ng-show="doWeHaveAName()">
   <lu ng-repeat="room in rooms">
-    <li>{{room.name}}</li>
+    <li class="room-link" ng-click='goRoom(room)'>{{room.name}}</li>
   </lu>
 </div>
