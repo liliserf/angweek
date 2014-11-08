@@ -9,19 +9,19 @@ angular.module('myApp.index', ['ngRoute','myApp.services'])
   });
 }])
 
-.controller('IndexCtrl', ['$scope','sharedData',function($scope,sharedData) {
+.controller('IndexCtrl', ['$scope','sharedData','firebaseService',function($scope,sharedData,firebaseService) {
 
   $scope.user = sharedData.currentUser;
 
-  $scope.rooms = [
+  $scope.rooms = firebaseService.getRooms();
 
-  {name : 'room1'},
-  {name : 'room2'},
-  {name : 'room3'},
-  {name : 'room4'},
-  {name : 'room5'},
-
-  ];
+  if($scope.rooms.length === 0){
+    $scope.rooms.$add({name : 'room1'});
+    $scope.rooms.$add({name : 'room2'});
+    $scope.rooms.$add({name : 'room3'});
+    $scope.rooms.$add({name : 'room4'});
+    $scope.rooms.$add({name : 'room5'});
+  };
 
   $scope.doWeHaveAName = function(){
     return $scope.user.name
